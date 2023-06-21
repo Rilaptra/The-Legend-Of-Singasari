@@ -1,0 +1,349 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.4rem 7%;
+  background-color: rgba(14, 14, 14, 0.541);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+}
+
+header .menu a {
+  justify-content: space-between;
+  display: inline-block;
+  margin: 0 1rem;
+  font-size: 1rem;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+header .menu a:active {
+  color: rgb(248, 37, 37);
+  font-weight: 400;
+}
+
+header .menu a::before {
+  content: "";
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 104%;
+  height: 1.5px;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 1;
+  border-radius: 1.5px;
+}
+
+header .menu #home::after {
+  content: "▼";
+  transition: transform 0.5s ease-in-out;
+  display: inline-block;
+}
+
+header .menu #home:hover::after {
+  transform: rotate(360deg);
+}
+
+header .menu a:hover::before, header .menu a.active::before {
+  transform: scaleX(1);
+}
+
+.container {
+  width: 100%;
+}
+
+.fotokelas {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+  background-image: url("data/bgcrop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  opacity: 0.7;
+  position: relative;
+}
+
+.fotokelas::before,
+.fotokelas::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50px; /* Sesuaikan tinggi gradasi hitam di bagian atas dan bawah */
+  background: linear-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 1)
+  );
+}
+
+.fotokelas::after {
+	height: 120px;
+}
+
+.fotokelas::before {
+  top: 0%;
+  transform: rotate(180deg);
+}
+
+.fotokelas::after {
+  bottom: 0;
+}
+
+/* TITLE */
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.singasari {
+	position: relative;
+	margin-top: -70px;
+	width: 200px;
+	height: 100px;
+	background-size: cover;
+	background-image: url("data/singasari.png");
+}
+
+/* Button */
+
+.main .play,
+.main .download {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 400;
+  margin: 10px 0;
+  background-color: rgb(222,0,0);
+  width: 200px;
+  height: 30px;
+  transition: all 0.2s ease-in-out;
+  border-radius: 50px;
+  position: relative;
+}
+
+.main .download {
+  background-color: gray;
+  margin-top: -2px;
+}
+
+/* Submenu */
+
+.submenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.4rem 7%;
+  margin-top: 10px;
+  position: relative;
+}
+
+.submenu a {
+  justify-content: space-between;
+  display: inline-block;
+  margin: 0 3rem;
+  font-size: 1.2rem;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.submenu a:active {
+  color: rgb(248, 37, 37);
+  font-weight: 400;
+}
+
+.submenu a::before {
+  content: "";
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 104%;
+  height: 2px;
+  background-color: red;
+  transform: scaleX(0);
+  transform-origin: center;
+  opacity: 0.7;
+}
+
+.submenu a:hover::before, .submenu a.active::before {
+  transform: scaleX(1);
+}
+
+.submenu a.active {
+	color: rgb(222,0,0)
+}
+/* Chapters */
+
+.chapters {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: -5px;
+}
+
+.chapters .chapter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 280px;
+    background-color: #444444;
+    border-radius: 20px;
+    margin: 2rem 0;
+    opacity: 1;
+    position: relative;
+}
+
+.chapters .chapter#over {
+	height: 300px;
+}
+
+.thumbnail {
+    position: relative;
+    height: 70%;
+    width: 86%;
+    margin-top: -40px;
+    background-image: var(--path);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    border-radius: 5%;
+}
+
+.thumbnail .content {
+    position: absolute;
+    bottom: -28%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    color: #fff;
+    width: 100%;
+}
+
+#over .content {
+	bottom: -34%;
+}
+
+.thumbnail .content h3 {
+    margin: 0;
+    width: 100%;
+    font-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; 
+    position: relative;
+    font-size: 14;
+    margin-bottom: 2px;
+}
+
+.thumbnail .content h3::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1.5px;
+	background-color: white;
+	bottom: -5px;
+	border-radius: 1.5px;
+}
+
+.thumbnail .content .subtitle {
+    margin-top: 9px;
+}
+
+/* Footer */
+.footer {
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 7%;
+  background-color: rgba(14, 14, 14, 0.541);
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-container .social-icons {
+  display: flex;
+  align-items: center;
+}
+
+.footer-container .social-icons a {
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.footer-container .copyright,
+.footer-container .creator {
+  font-size: 0.8rem;
+}
+
+.footer-container .creator {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+/* Media Queries
+
+/* Laptop */
+@media (max-width: 1366px) {
+  header .menu a {
+    margin: 0 2rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+  .fotokelas {
+    height: 55vh;
+  }
+}
+
+/* Mobile */
+@media (max-width: 450px) {
+  html {
+    font-size: 60%;
+  }
+  .fotokelas {
+    height: 40vh;
+  }
+}
