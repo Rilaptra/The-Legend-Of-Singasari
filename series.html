@@ -5,19 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Legend Of Singasari</title>
-    
+
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,300&display=swap" rel="stylesheet">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- Feather Icon -->
     <script src="https://unpkg.com/feather-icons"></script>
-    
+
     <style>
+        /* Same CSS as before */
         * {
             margin: 0;
             padding: 0;
@@ -223,22 +224,19 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            height: 280px;
             background-color: #444444;
             border-radius: 20px;
             margin: 2rem 0;
             opacity: 1;
             position: relative;
-        }
-
-        .chapter#over {
-            height: 300px;
+            padding: 1rem;
         }
 
         .thumbnail {
             position: relative;
             height: 70%;
             width: 86%;
+            aspect-ratio: 4/3;
             margin-top: -40px;
             background-size: cover;
             background-repeat: no-repeat;
@@ -246,8 +244,8 @@
             border-radius: 5%;
         }
 
-        .thumbnail .content {
-            position: absolute;
+        .content {
+            position: relative;
             bottom: -28%;
             left: 0;
             display: flex;
@@ -258,11 +256,7 @@
             width: 100%;
         }
 
-        #over .content {
-            bottom: -34%;
-        }
-
-        .thumbnail .content h3 {
+        .content h3 {
             margin: 0;
             width: 100%;
             font-family: 'Montserrat', sans-serif;
@@ -272,7 +266,7 @@
             margin-bottom: 2px;
         }
 
-        .thumbnail .content h3::before {
+        .content h3::before {
             content: "";
             position: absolute;
             width: 100%;
@@ -282,7 +276,7 @@
             border-radius: 1.5px;
         }
 
-        .thumbnail .content .subtitle {
+        .content .subtitle {
             margin-top: 9px;
         }
 
@@ -371,76 +365,22 @@
     <!-- Main -->
     <div class="container">
         <div class="fotokelas"></div>
-        
+
         <!-- Main Column -->
         <div class="main">
             <div class="singasari"></div>
             <a href="https://youtu.be/5gBBUk_dq8g" class="play">Play</a>
             <a href="https://youtu.be/5gBBUk_dq8g" class="download">&darr; Download</a>
-            
+
             <div class="submenu">
                 <a href="#" class="active">CHAPTER</a>
                 <a href="#">BEHIND</a>
                 <a href="#">ABOUT</a>
             </div>
-            
-            <div class="chapters">
-                <div class="chapter">
-                    <div class="thumbnail" style="--path: url(data/chap1.png)">
-                        <div class="content">
-                            <h3>CHAPTER 1</h3>
-                            <div class="subtitle">Masa Muda Ken Arok</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="chapter">
-                    <div class="thumbnail" style="--path: url(data/chap2.png)">
-                        <div class="content">
-                            <h3>CHAPTER 2</h3>
-                            <div class="subtitle">Ken Arok Sebagai Pengawal Tunggul Ametung</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="chapter">
-                    <div class="thumbnail" style="--path: url(data/chap3.png)" id="over">
-                        <div class="content">
-                            <h3>CHAPTER 3</h3>
-                            <div class="subtitle">Penghianatan Ken Arok dan Terbunuhnya Tunggul Ametung</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="chapter">
-                    <div class="thumbnail" style="--path: url(data/chap4.png)" id="over">
-                        <div class="content">
-                            <h3>CHAPTER 4</h3>
-                            <div class="subtitle">Hubungan Antara Runtuhnya Kerajaan Kediri dengan Ken Arok</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="chapter">
-                    <div class="thumbnail" style="--path: url(data/chap5.png)">
-                        <div class="content">
-                            <h3>CHAPTER 5</h3>
-                            <div class="subtitle">Kehidupan Cinta Ken Arok dan Ken Dedes</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="chapter">
-                    <div class="thumbnail" style="--path: url(data/chap6.png)" id="over">
-                        <div class="content">
-                            <h3>CHAPTER 6</h3>
-                            <div class="subtitle">Kematian Penguasa Singosari dan Berakhirnya Kutukan Mpu Gandring</div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- Chapters -->
+
+            <div class="chapters" id="chapters"></div> <!-- Chapters -->
         </div> <!-- Main -->
-        
+
         <!-- Footer -->
         <footer>
             <div class="footer-container">
@@ -461,10 +401,57 @@
             </div>
         </footer>
     </div> <!-- Container -->
-    
+
     <!-- Feather Icon -->
     <script>
-        feather.replace()
+        feather.replace();
+    </script>
+
+    <script>
+        // Chapters data
+        const chaptersData = [
+            { id: 1, image: 'data/chap1.png', title: 'CHAPTER 1', subtitle: 'Masa Muda Ken Arok' },
+            { id: 2, image: 'data/chap2.png', title: 'CHAPTER 2', subtitle: 'Ken Arok Sebagai Pengawal Tunggul Ametung' },
+            { id: 3, image: 'data/chap3.png', title: 'CHAPTER 3', subtitle: 'Penghianatan Ken Arok dan Terbunuhnya Tunggul Ametung' },
+            { id: 4, image: 'data/chap4.png', title: 'CHAPTER 4', subtitle: 'Hubungan Antara Runtuhnya Kerajaan Kediri dengan Ken Arok' },
+            { id: 5, image: 'data/chap5.png', title: 'CHAPTER 5', subtitle: 'Kehidupan Cinta Ken Arok dan Ken Dedes' },
+            { id: 6, image: 'data/chap6.png', title: 'CHAPTER 6', subtitle: 'Kematian Penguasa Singosari dan Berakhirnya Kutukan Mpu Gandring' },
+        ];
+
+        // Function to create a chapter card
+        function createChapterCard(chapter) {
+            const chapterDiv = document.createElement('div');
+            chapterDiv.className = 'chapter';
+
+            const thumbnailDiv = document.createElement('div');
+            thumbnailDiv.className = 'thumbnail';
+            thumbnailDiv.style.setProperty('--path', `url(${chapter.image})`);
+
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'content';
+
+            const title = document.createElement('h3');
+            title.textContent = chapter.title;
+
+            const subtitle = document.createElement('div');
+            subtitle.className = 'subtitle';
+            subtitle.textContent = chapter.subtitle;
+
+            contentDiv.appendChild(title);
+            contentDiv.appendChild(subtitle);
+
+            chapterDiv.appendChild(thumbnailDiv);
+            chapterDiv.appendChild(contentDiv);
+
+            return chapterDiv;
+        }
+
+        // Add chapters to the DOM
+        const chaptersContainer = document.getElementById('chapters');
+        chaptersData.forEach(chapter => {
+            const chapterCard = createChapterCard(chapter);
+            chaptersContainer.appendChild(chapterCard);
+        });
     </script>
 </body>
 </html>
