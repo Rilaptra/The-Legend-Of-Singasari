@@ -11,9 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,300&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-
     <!-- Feather Icon -->
     <script src="https://unpkg.com/feather-icons"></script>
 
@@ -148,10 +145,11 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            font-weight: 400;
+            font-weight: 500;
             margin: 10px 0;
             width: 200px;
             height: 30px;
+            font-size: 1.2rem;
             transition: all 0.2s ease-in-out;
             border-radius: 50px;
             position: relative;
@@ -164,6 +162,14 @@
         .main .download {
             background-color: gray;
             margin-top: -2px;
+        }
+        
+        #darr {
+            font-size: 1.3rem;
+            position: relative;
+            font-weight: 700;
+            margin-bottom: 2px;
+            margin-right: 2px;
         }
 
         .submenu {
@@ -215,7 +221,8 @@
             display: flex;
             flex-direction: column;
             width: 80%;
-            margin-top: -5px;
+            margin: 2rem 0;
+            gap: 1.3rem;
         }
 
         .chapter {
@@ -224,36 +231,35 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            background-color: #444444;
-            border-radius: 20px;
-            margin: 2rem 0;
-            opacity: 1;
+            background-color: #444;
+            border-radius: calc(2rem + 5px);
             position: relative;
-            padding: 1rem;
+            padding: 2.5rem;
+            gap: 1.5rem;
         }
 
         .thumbnail {
-            position: relative;
-            height: 70%;
-            width: 86%;
-            aspect-ratio: 4/3;
-            margin-top: -40px;
+            width: 100%;
+            aspect-ratio: 16/9;
             background-size: cover;
             background-repeat: no-repeat;
-            background-position: center top;
-            border-radius: 5%;
+            background-position: center;
+            background-image: var(--path);
+            border-radius: 2rem;
+            filter: sepia(0.3) saturate(150%);
         }
 
         .content {
             position: relative;
-            bottom: -28%;
+            bottom: 0;
             left: 0;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            padding: 10px;
             color: #fff;
             width: 100%;
+            padding: 0 2rem;
+            margin-bottom: -1rem;
         }
 
         .content h3 {
@@ -263,7 +269,6 @@
             font-weight: 600; 
             position: relative;
             font-size: 14px;
-            margin-bottom: 2px;
         }
 
         .content h3::before {
@@ -273,6 +278,7 @@
             height: 1.5px;
             background-color: white;
             bottom: -5px;
+            margin: auto;
             border-radius: 1.5px;
         }
 
@@ -370,7 +376,7 @@
         <div class="main">
             <div class="singasari"></div>
             <a href="https://youtu.be/5gBBUk_dq8g" class="play">Play</a>
-            <a href="https://youtu.be/5gBBUk_dq8g" class="download">&darr; Download</a>
+            <a href="https://youtu.be/5gBBUk_dq8g" class="download"><span id="darr">&darr;</span> Download</a>
 
             <div class="submenu">
                 <a href="#" class="active">CHAPTER</a>
